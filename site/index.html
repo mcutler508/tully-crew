@@ -203,10 +203,16 @@ section{position:relative;padding:96px 0}
 .yt:hover .yt-play,.yt:focus-visible .yt-play{transform:translate(-50%,-50%) scale(1.08)}
 
 /* ---------- gigs (chalkboard) ---------- */
+.dartboard{background:
+  radial-gradient(ellipse at 50% 45%,#090705a6,#090705e6 75%),
+  url(assets/dartboard-bg.jpg) center/cover var(--ink);
+  background:
+  radial-gradient(ellipse at 50% 45%,#090705a6,#090705e6 75%),
+  image-set(url(assets/dartboard-bg.webp) type("image/webp"),url(assets/dartboard-bg.jpg) type("image/jpeg")) center/cover var(--ink)}
 .board{position:relative;padding:clamp(22px,4vw,44px);border-radius:6px;border:14px solid transparent;background:
   radial-gradient(ellipse at 30% 20%,#ffffff0c,transparent 60%) padding-box,
   repeating-linear-gradient(-35deg,#ffffff05 0 2px,#0000 2px 9px) padding-box,
-  linear-gradient(#1c2622,#151d1a) padding-box,
+  linear-gradient(#1c2622c7,#151d1ac7) padding-box,
   linear-gradient(145deg,#6b4a1f,#3b2516 40%,#7a5424 60%,#2a1a0f) border-box;
   box-shadow:0 20px 40px #000c}
 .board h3{text-align:center;font-size:clamp(26px,3.6vw,36px);color:var(--cream);opacity:.9;margin-bottom:22px}
@@ -434,7 +440,7 @@ footer small{font:17px var(--pixel);color:var(--cream-dim);letter-spacing:1px}
 </section>
 
 <!-- ============ GIGS ============ -->
-<section id="gigs" class="baize">
+<section id="gigs" class="dartboard">
   <div class="wrap">
     <div class="head reveal">
       <div class="divider" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 4c6 6 6 10 0 16-6-6-6-10 0-16Zm0 32c-6-6-6-10 0-16 6 6 6 10 0 16ZM4 20c6-6 10-6 16 0-6 6-10 6-16 0Zm32 0c-6 6-10 6-16 0 6-6 10-6 16 0Z"/><circle cx="20" cy="20" r="13"/></svg></div>
@@ -466,7 +472,7 @@ footer small{font:17px var(--pixel);color:var(--cream-dim);letter-spacing:1px}
           <dt>No House Gear Necessary</dt>
           <dd>We have the amps, the PA's, and the mics for any size gig. We'll even bring a light show if you need it.</dd>
         </dl>
-        <p>Or email us directly at <a id="mail-link" href="#">bookings@example.com</a>.</p>
+        <p>Or email us directly at <a id="mail-link" href="mailto:lmarchie@gmail.com">lmarchie@gmail.com</a>.</p>
       </div>
       <form id="book-form" class="reveal" style="--delay:.15s" novalidate>
         <label>Your name<input name="who" autocomplete="name" required></label>
@@ -518,7 +524,7 @@ footer small{font:17px var(--pixel);color:var(--cream-dim);letter-spacing:1px}
 /* ======================================================
    EDIT ME: band details
    ====================================================== */
-const BOOKING_EMAIL = 'bookings@example.com';
+const BOOKING_EMAIL = 'lmarchie@gmail.com';
 
 // Upcoming gigs. Past dates hide themselves automatically.
 // date: 'YYYY-MM-DD'; link and price are optional.
