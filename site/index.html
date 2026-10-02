@@ -1,0 +1,652 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Tullamore Crew — Irish Folk Band</title>
+<meta name="description" content="The Tullamore Crew: a seven-piece Irish folk band playing ballads, reels and rebel songs. Gig dates, music and bookings.">
+<meta property="og:title" content="The Tullamore Crew">
+<meta property="og:description" content="Seven players, one stage. Irish ballads, reels and rebel songs.">
+<meta property="og:image" content="assets/pub-scene.jpg">
+<meta name="theme-color" content="#071b17">
+<link rel="preload" as="image" href="assets/pub-scene.webp" type="image/webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=VT323&display=swap" rel="stylesheet">
+<style>
+@font-face{font-family:"Uncial Antiqua";font-style:normal;font-weight:400;font-display:swap;src:url(assets/uncial-antiqua.ttf) format("truetype")}
+:root{
+  --ink:#090705;--green-900:#071b17;--green-800:#0c2a22;--green-700:#103b2d;
+  --wood:#2a1a0f;--wood-hi:#3b2516;--gold:#e5ba69;--gold-hi:#efd293;--gold-lo:#ba9048;
+  --cream:#faf1dd;--cream-dim:#d8ccb4;--ember:#ff9c18;
+  --display:"Uncial Antiqua","Palatino Linotype",Palatino,Georgia,serif;
+  --body:"EB Garamond",Garamond,Georgia,serif;
+  --pixel:"VT323",ui-monospace,Consolas,monospace;
+  --nav-h:64px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:var(--nav-h)}
+body{margin:0;background:var(--ink);color:var(--cream);font:19px/1.6 var(--body);-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:var(--gold-hi)}
+h1,h2,h3{font-family:var(--display);font-weight:400;color:var(--gold-hi);line-height:1.1;margin:0}
+.kicker{font-family:var(--pixel);font-size:22px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin:0 0 10px}
+.wrap{width:min(1120px,100% - 32px);margin-inline:auto}
+.skip{position:absolute;left:-999px;top:8px;z-index:50;background:var(--gold);color:var(--ink);padding:8px 12px}
+.skip:focus{left:8px}
+:focus-visible{outline:2px solid var(--gold-hi);outline-offset:3px}
+
+/* ---------- nav ---------- */
+.nav{position:fixed;inset:0 0 auto;height:var(--nav-h);z-index:20;display:flex;align-items:center;transition:background .35s,box-shadow .35s}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.nav::before{content:"";position:absolute;inset:0;background:linear-gradient(#000a,#0000);z-index:-1;transition:opacity .35s}
+.nav.solid{background:#071b17f2;box-shadow:0 1px 0 #ba904866,0 6px 20px #0008}
+.nav.solid::before{opacity:0}
+.brand{font-family:var(--display);font-size:24px;color:var(--gold-hi);text-decoration:none;white-space:nowrap;opacity:0;transform:translateY(-6px);transition:opacity .35s,transform .35s;text-shadow:0 2px 0 #694517}
+.nav.solid .brand{opacity:1;transform:none}
+.nav ul{display:flex;gap:26px;list-style:none;margin:0;padding:0}
+.nav ul a{font-family:var(--pixel);font-size:22px;letter-spacing:1px;text-transform:uppercase;color:var(--cream);text-decoration:none;position:relative}
+.nav ul a::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:2px;background:var(--gold);transform:scaleX(0);transition:transform .25s}
+.nav ul a:hover::after,.nav ul a[aria-current="true"]::after{transform:scaleX(1)}
+.menu-btn{display:none;background:none;border:1px solid #e5ba6970;color:var(--cream);font:22px var(--pixel);padding:2px 12px;border-radius:4px;cursor:pointer}
+@media(max-width:720px){
+  .menu-btn{display:block}
+  .nav ul{position:absolute;top:var(--nav-h);right:16px;flex-direction:column;gap:4px;background:#071b17f7;border:1px solid #e5ba6955;border-radius:8px;padding:10px 18px;display:none}
+  .nav.open ul{display:flex}
+  .nav.open{background:#071b17f2}
+  .nav.open .brand{opacity:1;transform:none}
+  .nav ul a{display:block;padding:6px 0}
+}
+
+/* ---------- hero (the animated pub) ---------- */
+.hero{position:relative;height:max(100svh,520px);overflow:hidden;background:var(--ink)}
+.scene{--tx:-50%;--py:0px;position:absolute;top:50%;left:50%;width:max(100%,calc(max(100svh,520px) * 1.7768));aspect-ratio:1672/941;transform:translate(var(--tx),calc(-50% + var(--py)));will-change:transform}
+@media(max-aspect-ratio:1/1){.scene{--tx:-60%}}
+.scene>img,.scene>picture img{width:100%;height:100%}
+.glow{position:absolute;width:9%;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,#ffd06f55,#ff9c1820 35%,transparent 70%);mix-blend-mode:screen;animation:flicker var(--d) infinite ease-in-out;pointer-events:none}
+.glow.sm{width:5%}
+.fire{position:absolute;left:94%;top:37%;width:6%;height:18%;background:radial-gradient(ellipse,#ffa51666,transparent 70%);mix-blend-mode:screen;animation:fire 2.6s infinite;pointer-events:none}
+.ember{position:absolute;top:47%;width:2px;height:2px;background:#ffd464;box-shadow:0 0 5px #ff9b20;opacity:.35;animation:rise 2.4s linear infinite;pointer-events:none}
+.stagelight{position:absolute;left:33%;top:0;width:58%;height:62%;background:radial-gradient(ellipse at 50% 100%,#ffcf7a26,transparent 65%);mix-blend-mode:screen;animation:stage 6s ease-in-out infinite;pointer-events:none}
+@keyframes flicker{0%,100%{opacity:.15;transform:translate(-50%,-50%) scale(.8)}30%{opacity:.55;transform:translate(-50%,-50%) scale(1.08)}45%{opacity:.3}68%{opacity:.5;transform:translate(-50%,-50%) scale(1.04)}83%{opacity:.35}}
+@keyframes fire{0%,100%{opacity:.2;transform:scale(.8)}23%{opacity:.55;transform:scale(1.04)}47%{opacity:.35}71%{opacity:.5;transform:scale(1.02)}}
+@keyframes rise{0%{opacity:0;transform:translate(0,0)}20%{opacity:1}100%{opacity:0;transform:translate(-15px,-85px)}}
+@keyframes stage{0%,100%{opacity:.6}50%{opacity:1}}
+.scene canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+
+/* notes that float off the band while the music plays */
+.note{position:absolute;font:clamp(14px,1.6vw,26px)/1 var(--pixel);color:var(--gold-hi);text-shadow:0 0 6px #ff9c18aa,0 2px 0 #000;pointer-events:none;animation:note 2.8s ease-out forwards}
+@keyframes note{0%{opacity:0;transform:translate(0,0) scale(.6)}15%{opacity:1}100%{opacity:0;transform:translate(var(--dx),-140%) scale(1.15) rotate(var(--rot))}}
+
+/* band hotspots */
+.spot{position:absolute;top:31%;height:25%;width:7.4%;transform:translateX(-50%);border-radius:40% 40% 8px 8px;text-decoration:none}
+.spot span{position:absolute;left:50%;bottom:calc(100% + 4px);transform:translate(-50%,6px);white-space:nowrap;background:#071b17ee;border:1px solid var(--gold-lo);color:var(--cream);font:18px/1 var(--pixel);letter-spacing:1px;padding:5px 9px;border-radius:4px;opacity:0;transition:opacity .2s,transform .2s;pointer-events:none}
+.spot span b{color:var(--gold);font-weight:400}
+.spot:hover span,.spot:focus-visible span{opacity:1;transform:translate(-50%,0)}
+.spot:hover,.spot:focus-visible{box-shadow:0 0 0 2px #efd29355,0 0 30px #ffcf7a33 inset}
+
+.hero-copy{position:absolute;inset:auto 0 0;padding:120px 0 34px;background:linear-gradient(#09070500,#090705d9 55%,var(--ink));z-index:2}
+.hero-copy .wrap{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.hero-copy p{margin:0;max-width:34ch;}.hero-copy .kicker{max-width:none;margin-bottom:8px}.hero-copy p:not(.kicker){font-size:clamp(19px,2.1vw,24px);color:var(--cream);text-shadow:0 2px 8px #000}
+.hero-copy .kicker{animation:fadeUp .9s .2s both}
+.hero-copy p{animation:fadeUp .9s .4s both}
+.hero-copy .ctas{animation:fadeUp .9s .6s both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}}
+.ctas{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:10px;font:22px/1 var(--pixel);letter-spacing:1px;text-transform:uppercase;text-decoration:none;cursor:pointer;padding:12px 20px;border-radius:4px;border:2px solid var(--gold);background:var(--gold);color:var(--ink);box-shadow:0 4px 0 var(--gold-lo),0 6px 16px #0008;transition:transform .12s,box-shadow .12s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 6px 0 var(--gold-lo),0 10px 20px #0009}
+.btn:active{transform:translateY(3px);box-shadow:0 1px 0 var(--gold-lo)}
+.btn.ghost{background:#071b17b8;color:var(--gold-hi);box-shadow:0 4px 0 #000a}
+.scroll-cue{position:absolute;left:50%;bottom:8px;transform:translateX(-50%);font:16px var(--pixel);letter-spacing:2px;color:var(--gold);text-decoration:none;z-index:3;animation:bob 1.6s steps(2) infinite}
+@keyframes bob{50%{transform:translate(-50%,4px)}}
+.hero-tools{position:absolute;right:16px;top:calc(var(--nav-h) + 8px);z-index:3;display:flex;gap:8px}
+.chip{background:#071b17b0;border:1px solid #e5ba6970;color:var(--cream);font:16px var(--pixel);letter-spacing:1px;padding:4px 10px;border-radius:4px;cursor:pointer;opacity:.7}
+.chip:hover,.chip:focus-visible{opacity:1}
+@media(max-width:600px){.hero-copy{padding-bottom:40px}.scroll-cue{display:none}.spot span{font-size:15px}}
+
+/* paused / reduced motion */
+.paused .scene *,.paused .scene{animation-play-state:paused!important}
+.paused .vinyl,.paused .eq i,.paused .crew-card img{animation-play-state:paused!important}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .glow,.fire,.stagelight,.scroll-cue{animation:none}.ember{display:none}
+  .reveal{transition:none!important}
+}
+
+/* ---------- section chrome ---------- */
+section{position:relative;padding:96px 0}
+.divider{display:flex;align-items:center;gap:14px;justify-content:center;color:var(--gold-lo);margin:0 auto 18px;width:min(360px,80%)}
+.divider::before,.divider::after{content:"";flex:1;height:2px;background:linear-gradient(90deg,transparent,var(--gold-lo))}
+.divider::after{transform:scaleX(-1)}
+.divider svg{width:34px;height:34px;flex:none}
+.head{text-align:center;margin-bottom:48px}
+.head h2{font-size:clamp(34px,5vw,56px);text-shadow:0 2px 0 #694517,0 4px 12px #000}
+.head p{color:var(--cream-dim);max-width:52ch;margin:14px auto 0}
+.js .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s ease;transition-delay:var(--delay,0s)}
+.js .reveal.in{opacity:1;transform:none}
+
+/* wood + green textures */
+.wood{background:
+  repeating-linear-gradient(90deg,#0000 0 3px,#0000000d 3px 4px),
+  repeating-linear-gradient(180deg,#0000 0 46px,#00000040 46px 48px,#ffffff06 48px 49px),
+  linear-gradient(var(--wood),#1d1209)}
+.baize{background:radial-gradient(ellipse at 50% 0,#103b2d,var(--green-900) 70%)}
+
+/* ---------- story ---------- */
+.story-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
+.story-grid p{margin:0 0 1em}
+.story-grid p:first-of-type::first-letter{font-family:var(--display);float:left;font-size:76px;line-height:.8;padding:8px 10px 0 0;color:var(--gold)}
+.quote{margin:0;padding:34px 30px;border:2px solid var(--gold-lo);border-radius:6px;background:#071b17;box-shadow:inset 0 0 0 6px #071b17,inset 0 0 0 7px #ba904866,0 14px 30px #000a;text-align:center}
+.quote blockquote{margin:0;font-size:clamp(24px,2.6vw,30px);font-style:italic;line-height:1.35;color:var(--cream)}
+.quote figcaption{margin-top:16px;font:20px var(--pixel);letter-spacing:1px;color:var(--gold)}
+.facts{display:flex;gap:28px;margin-top:28px;flex-wrap:wrap}
+.facts div{font:20px/1.1 var(--pixel);color:var(--cream-dim);letter-spacing:1px;text-transform:uppercase}
+.facts b{display:block;font:400 42px/1 var(--display);color:var(--gold-hi);margin-bottom:4px}
+@media(max-width:820px){.story-grid{grid-template-columns:1fr;gap:36px}}
+
+/* ---------- crew ---------- */
+.crew-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:20px}
+.crew-card{margin:0;flex:1 1 130px;max-width:170px;text-align:center;scroll-margin-top:calc(var(--nav-h) + 20px)}
+.frame{position:relative;padding:8px;background:linear-gradient(145deg,#c99b52,#7a5424 45%,#d8ae64 55%,#6b4a1f);border-radius:4px;box-shadow:0 10px 24px #000b}
+.frame::after{content:"";position:absolute;inset:8px;box-shadow:inset 0 0 0 2px #00000080,inset 0 0 22px #000a;pointer-events:none}
+.crew-card img{width:100%;aspect-ratio:156/180;object-fit:cover;image-rendering:pixelated;background:#0c2a22}
+.crew-card:hover img,.crew-card:target img,.crew-card:focus-within img{animation:idle .5s steps(2) infinite}
+@keyframes idle{50%{transform:translateY(-3px)}}
+.crew-card:target .frame{box-shadow:0 0 0 3px var(--gold-hi),0 0 40px #ffcf7a66}
+.crew-card h3{font-size:22px;margin:16px 0 2px}
+.crew-card figcaption span{font:19px var(--pixel);letter-spacing:1px;text-transform:uppercase;color:var(--gold)}
+
+/* ---------- listen ---------- */
+.listen-grid{display:grid;grid-template-columns:auto 1fr;gap:56px;align-items:center}
+.turntable{position:relative;width:min(340px,70vw);aspect-ratio:1;border-radius:14px;background:linear-gradient(145deg,#3b2516,#1d1209);box-shadow:0 18px 40px #000c,inset 0 0 0 2px #ba904844;display:grid;place-items:center;margin-inline:auto}
+.vinyl{width:86%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,var(--gold) 0 14%,#7a5424 14.5% 15.5%,#111 16%),repeating-radial-gradient(circle,#161616 0 2px,#0b0b0b 2px 4px);background-blend-mode:normal;box-shadow:0 0 0 3px #000,0 6px 16px #000;position:relative;animation:spin 3.2s linear infinite;animation-play-state:paused}
+.vinyl::before{content:"";position:absolute;inset:0;border-radius:50%;background:conic-gradient(from 30deg,#ffffff00 0 20%,#ffffff1a 25%,#ffffff00 30% 70%,#ffffff12 75%,#ffffff00 80%)}
+.vinyl::after{content:"☘";position:absolute;inset:0;display:grid;place-items:center;font-size:clamp(20px,5vw,30px);color:var(--green-700)}
+.playing .vinyl{animation-play-state:running}
+@keyframes spin{to{transform:rotate(360deg)}}
+.tonearm{position:absolute;right:9%;top:8%;width:8px;height:52%;background:linear-gradient(90deg,#d8ae64,#7a5424);border-radius:4px;transform-origin:50% 6px;transform:rotate(8deg);transition:transform .7s cubic-bezier(.5,1.6,.5,1);box-shadow:0 4px 8px #000a}
+.tonearm::before{content:"";position:absolute;top:-6px;left:50%;width:22px;height:22px;transform:translateX(-50%);border-radius:50%;background:radial-gradient(#d8ae64,#5b3d18)}
+.tonearm::after{content:"";position:absolute;bottom:-4px;left:-5px;width:18px;height:14px;background:#d8ae64;border-radius:3px}
+.playing .tonearm{transform:rotate(26deg)}
+.track-card h3{font-size:clamp(30px,4vw,44px);margin:6px 0 4px}
+.track-card .by{color:var(--cream-dim);margin:0 0 22px}
+.player{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.play-big{width:64px;height:64px;justify-content:center;padding:0;font-size:26px;border-radius:50%}
+.eq{display:flex;align-items:flex-end;gap:4px;height:40px}
+.eq i{width:6px;height:20%;background:var(--gold);box-shadow:0 0 6px #ff9c1866;animation:eq 1s steps(5) infinite;animation-play-state:paused}
+.eq i:nth-child(2){animation-duration:.8s}.eq i:nth-child(3){animation-duration:1.15s}.eq i:nth-child(4){animation-duration:.7s}.eq i:nth-child(5){animation-duration:.95s}.eq i:nth-child(6){animation-duration:1.3s}.eq i:nth-child(7){animation-duration:.85s}
+.playing .eq i{animation-play-state:running}
+@keyframes eq{0%,100%{height:20%}25%{height:90%}50%{height:45%}75%{height:70%}}
+.scrub{flex:1 1 220px;display:flex;align-items:center;gap:10px;font:19px var(--pixel);color:var(--cream-dim)}
+.scrub input{flex:1;accent-color:var(--gold)}
+.stream{margin-top:26px;display:flex;gap:10px;flex-wrap:wrap}
+@media(max-width:820px){.listen-grid{grid-template-columns:1fr;gap:40px}}
+
+/* ---------- gigs (chalkboard) ---------- */
+.board{position:relative;padding:clamp(22px,4vw,44px);border-radius:6px;border:14px solid transparent;background:
+  radial-gradient(ellipse at 30% 20%,#ffffff0c,transparent 60%) padding-box,
+  repeating-linear-gradient(-35deg,#ffffff05 0 2px,#0000 2px 9px) padding-box,
+  linear-gradient(#1c2622,#151d1a) padding-box,
+  linear-gradient(145deg,#6b4a1f,#3b2516 40%,#7a5424 60%,#2a1a0f) border-box;
+  box-shadow:0 20px 40px #000c}
+.board h3{text-align:center;font-size:clamp(26px,3.6vw,36px);color:var(--cream);opacity:.9;margin-bottom:22px}
+.gigs{list-style:none;margin:0;padding:0}
+.gig{display:grid;grid-template-columns:90px 1fr auto;gap:20px;align-items:center;padding:16px 4px;border-bottom:2px dashed #faf1dd2e;font-family:var(--pixel);font-size:24px;line-height:1.15;color:#f3eddf}
+.gig:last-child{border-bottom:0}
+.gig .date{text-align:center;color:var(--gold-hi)}
+.gig .date b{display:block;font-size:44px;font-weight:400;line-height:.9}
+.gig .where strong{display:block;font-weight:400;font-size:28px;color:#fff}
+.gig .where span{color:#d6cfbf}
+.gig .btn{font-size:19px;padding:8px 14px}
+.gig .free{color:var(--gold)}
+.empty{text-align:center;font:26px var(--pixel);color:#d6cfbf;padding:20px 0}
+@media(max-width:600px){.gig{grid-template-columns:64px 1fr;gap:14px}.gig .date b{font-size:36px}.gig .act{grid-column:2}}
+
+/* ---------- booking ---------- */
+.book-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:start}
+.book-grid ul{padding-left:1.1em;margin:18px 0}
+.book-grid li::marker{content:"☘  ";color:var(--gold)}
+form{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:28px;background:#071b17;border:2px solid var(--gold-lo);border-radius:6px;box-shadow:inset 0 0 0 6px #071b17,inset 0 0 0 7px #ba904855,0 14px 30px #000a}
+form label{display:grid;gap:6px;font:19px var(--pixel);letter-spacing:1px;text-transform:uppercase;color:var(--gold)}
+form .full{grid-column:1/-1}
+input,textarea,select{font:18px var(--body);color:var(--cream);background:#0c2a22;border:1px solid #ba904866;border-radius:4px;padding:10px 12px;width:100%}
+input:focus,textarea:focus,select:focus{outline:none;border-color:var(--gold-hi);box-shadow:0 0 0 3px #e5ba6933}
+textarea{min-height:120px;resize:vertical}
+form .btn{justify-self:start}
+.form-note{grid-column:1/-1;margin:0;font-size:16px;color:var(--cream-dim)}
+@media(max-width:820px){.book-grid{grid-template-columns:1fr;gap:36px}}
+@media(max-width:520px){form{grid-template-columns:1fr;padding:20px}}
+
+/* ---------- footer ---------- */
+footer{padding:64px 0 120px;text-align:center;border-top:2px solid var(--gold-lo);background:linear-gradient(var(--green-700),var(--green-900))}
+footer .slainte{font-family:var(--display);font-size:clamp(40px,7vw,72px);color:var(--gold-hi);text-shadow:0 3px 0 #694517,0 6px 16px #000;margin:0}
+.socials{display:flex;justify-content:center;gap:22px;flex-wrap:wrap;margin:22px 0;list-style:none;padding:0}
+.socials a{font:22px var(--pixel);letter-spacing:1px;text-transform:uppercase;color:var(--cream);text-decoration:none}
+.socials a:hover{color:var(--gold-hi)}
+footer small{font:17px var(--pixel);color:var(--cream-dim);letter-spacing:1px}
+
+/* ---------- floating mini player (from the original page) ---------- */
+.music{position:fixed;left:14px;bottom:14px;z-index:15;display:flex;align-items:center;gap:2px;padding:4px;border-radius:24px;background:#071b17d0;border:1px solid #e5ba6950;opacity:.8;transition:opacity .2s;backdrop-filter:blur(4px)}
+.music:hover,.music:focus-within,.music.playing{opacity:1}
+.music button{border:0;background:transparent;color:var(--cream);width:36px;height:36px;padding:0;border-radius:50%;font-size:16px;cursor:pointer}
+.music button:hover{background:#e5ba6922}
+.music .now{font:17px var(--pixel);letter-spacing:1px;color:var(--gold);padding-right:0;white-space:nowrap;max-width:0;overflow:hidden;transition:max-width .4s}
+.music.playing .now{max-width:220px;padding-right:10px}
+.music-options{position:relative}
+.music-options summary{list-style:none;cursor:pointer;width:30px;height:36px;display:grid;place-items:center;color:var(--gold);font-size:18px}
+.music-options summary::-webkit-details-marker{display:none}
+.music-popover{position:absolute;bottom:50px;left:-40px;width:220px;padding:15px;background:#071b17f5;border:1px solid #e5ba6955;border-radius:8px;box-shadow:0 8px 24px #0007;font:15px Arial,sans-serif}
+.music-popover small{display:block;color:var(--gold);margin-top:3px}
+.music-popover label{display:flex;align-items:center;gap:8px;margin-top:14px}
+.music-popover input{width:90px;accent-color:var(--gold);padding:0;border:0;background:none}
+#music-status:empty{display:none}
+#music-status:not(:empty){position:absolute;left:0;bottom:50px;background:#071b17;padding:10px;width:210px;font:13px Arial,sans-serif}
+</style>
+</head>
+<body>
+<a class="skip" href="#story">Skip to content</a>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="brand" href="#top">The Tullamore Crew</a>
+    <button class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="menu">Menu</button>
+    <nav aria-label="Main"><ul id="menu">
+      <li><a href="#story">Story</a></li>
+      <li><a href="#crew">The Crew</a></li>
+      <li><a href="#listen">Listen</a></li>
+      <li><a href="#gigs">Gigs</a></li>
+      <li><a href="#book">Book Us</a></li>
+    </ul></nav>
+  </div>
+</header>
+
+<main>
+<!-- ============ HERO: the animated pub ============ -->
+<section class="hero" id="top" aria-label="The Tullamore Crew live in the pub" style="padding:0">
+  <div class="scene" id="scene">
+    <picture>
+      <source srcset="assets/pub-scene.webp" type="image/webp">
+      <img src="assets/pub-scene.jpg" width="1672" height="941" alt="The Tullamore Crew, seven musicians, playing on the stage of a lantern-lit Irish pub while the crowd raises pints">
+    </picture>
+    <div class="stagelight"></div>
+    <!-- lantern + candle glows -->
+    <i class="glow" style="left:6%;top:19%;--d:2.8s;animation-delay:0s"></i>
+    <i class="glow" style="left:15%;top:25%;--d:3.1s;animation-delay:-.37s"></i>
+    <i class="glow" style="left:20%;top:27%;--d:2.6s;animation-delay:-.74s"></i>
+    <i class="glow" style="left:27%;top:27%;--d:3.5s;animation-delay:-1.11s"></i>
+    <i class="glow" style="left:40%;top:18%;--d:3s;animation-delay:-1.48s"></i>
+    <i class="glow" style="left:48%;top:21%;--d:3.3s;animation-delay:-1.85s"></i>
+    <i class="glow" style="left:51%;top:9%;--d:3.8s;animation-delay:-2.22s"></i>
+    <i class="glow" style="left:70%;top:21%;--d:2.7s;animation-delay:-2.59s"></i>
+    <i class="glow" style="left:75%;top:10%;--d:3.4s;animation-delay:-2.96s"></i>
+    <i class="glow" style="left:83%;top:19%;--d:2.9s;animation-delay:-3.33s"></i>
+    <i class="glow" style="left:17%;top:84%;--d:2.3s;animation-delay:-3.7s"></i>
+    <i class="glow" style="left:27%;top:66%;--d:2.6s;animation-delay:-4.07s"></i>
+    <i class="glow" style="left:85%;top:72%;--d:3.6s;animation-delay:-4.44s"></i>
+    <i class="glow sm" style="left:80.5%;top:79%;--d:2.4s;animation-delay:-1.2s"></i>
+    <i class="glow sm" style="left:94%;top:77%;--d:3.2s;animation-delay:-2.1s"></i>
+    <i class="glow sm" style="left:48%;top:44%;--d:2.9s;animation-delay:-.6s"></i>
+    <div class="fire"></div>
+    <b class="ember" style="left:96.2%;animation-delay:0s"></b>
+    <b class="ember" style="left:96.8%;animation-delay:-.6s"></b>
+    <b class="ember" style="left:97.4%;animation-delay:-1.2s"></b>
+    <b class="ember" style="left:98%;animation-delay:-1.8s"></b>
+    <b class="ember" style="left:98.6%;animation-delay:-2.4s"></b>
+    <canvas id="dust" aria-hidden="true"></canvas>
+    <!-- hover a player in the scene to see who it is; click to jump to their card -->
+    <a class="spot" href="#m1" style="left:36.6%"><span><b>Bass</b> · Member name</span></a>
+    <a class="spot" href="#m2" style="left:44%"><span><b>Mandolin</b> · Member name</span></a>
+    <a class="spot" href="#m3" style="left:51.3%"><span><b>Guitar &amp; vocals</b> · Member name</span></a>
+    <a class="spot" href="#m4" style="left:60.5%"><span><b>Drums</b> · Member name</span></a>
+    <a class="spot" href="#m5" style="left:70.3%"><span><b>Guitar &amp; vocals</b> · Member name</span></a>
+    <a class="spot" href="#m6" style="left:78.6%;width:5.5%"><span><b>Tin whistle</b> · Member name</span></a>
+    <a class="spot" href="#m7" style="left:86.1%"><span><b>Fiddle</b> · Member name</span></a>
+  </div>
+
+  <div class="hero-tools">
+    <button class="chip" id="motion">Pause motion</button>
+  </div>
+
+  <div class="hero-copy">
+    <div class="wrap">
+      <div>
+        <p class="kicker">Irish folk · Live music · Pints raised</p>
+        <p>Seven players, one stage, and a night of ballads, reels and rebel songs.</p>
+      </div>
+      <div class="ctas">
+        <button class="btn" data-play><span data-icon>▶</span> <span data-label>Hear the Crew</span></button>
+        <a class="btn ghost" href="#book">Book the band</a>
+      </div>
+    </div>
+  </div>
+  <a class="scroll-cue" href="#story" aria-label="Scroll to the story">▼ pull up a stool ▼</a>
+</section>
+
+<!-- ============ STORY ============ -->
+<section id="story" class="wood">
+  <div class="wrap">
+    <div class="head reveal">
+      <div class="divider" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 4c6 6 6 10 0 16-6-6-6-10 0-16Zm0 32c-6-6-6-10 0-16 6 6 6 10 0 16ZM4 20c6-6 10-6 16 0-6 6-10 6-16 0Zm32 0c-6 6-10 6-16 0 6-6 10-6 16 0Z"/><circle cx="20" cy="20" r="13"/></svg></div>
+      <p class="kicker">The story</p>
+      <h2>Born in the snug</h2>
+    </div>
+    <div class="story-grid">
+      <div class="reveal">
+        <!-- EDIT: replace with the band's real story -->
+        <p>The Tullamore Crew started the way the best bands do: a few friends, a few instruments, and a corner of the pub that nobody else wanted. One tune turned into a session, and the session turned into a band.</p>
+        <p>Now it's seven of us on bass, mandolin, guitars, drums, tin whistle and fiddle. We play the old songs loud and the slow ones soft, and we're not leaving until the last chorus has the whole room singing.</p>
+        <div class="facts">
+          <div><b>7</b>players</div>
+          <div><b>∞</b>choruses</div>
+          <div><b>1</b>last song (never)</div>
+        </div>
+      </div>
+      <figure class="quote reveal" style="--delay:.15s">
+        <!-- EDIT: swap in a real review or a line from a fan -->
+        <blockquote>“Come for one pint. Leave three hours later, hoarse from singing.”</blockquote>
+        <figcaption>— A regular at the bar</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CREW ============ -->
+<section id="crew" class="baize">
+  <div class="wrap">
+    <div class="head reveal">
+      <div class="divider" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 4c6 6 6 10 0 16-6-6-6-10 0-16Zm0 32c-6-6-6-10 0-16 6 6 6 10 0 16ZM4 20c6-6 10-6 16 0-6 6-10 6-16 0Zm32 0c-6 6-10 6-16 0 6-6 10-6 16 0Z"/><circle cx="20" cy="20" r="13"/></svg></div>
+      <p class="kicker">Meet the crew</p>
+      <h2>Seven on the stage</h2>
+      <p>Point at anyone in the pub scene up top to see who they are.</p>
+    </div>
+    <!-- EDIT: put each member's real name in the <h3> (and in the matching .spot label in the hero) -->
+    <div class="crew-grid">
+      <figure class="crew-card reveal" id="m1" style="--delay:0s"><div class="frame"><img src="assets/crew-1.webp" alt="Bass player" loading="lazy"></div><figcaption><h3>Member name</h3><span>Bass</span></figcaption></figure>
+      <figure class="crew-card reveal" id="m2" style="--delay:.06s"><div class="frame"><img src="assets/crew-2.webp" alt="Mandolin player" loading="lazy"></div><figcaption><h3>Member name</h3><span>Mandolin</span></figcaption></figure>
+      <figure class="crew-card reveal" id="m3" style="--delay:.12s"><div class="frame"><img src="assets/crew-3.webp" alt="Guitarist and singer" loading="lazy"></div><figcaption><h3>Member name</h3><span>Guitar &amp; vocals</span></figcaption></figure>
+      <figure class="crew-card reveal" id="m4" style="--delay:.18s"><div class="frame"><img src="assets/crew-4.webp" alt="Drummer" loading="lazy"></div><figcaption><h3>Member name</h3><span>Drums</span></figcaption></figure>
+      <figure class="crew-card reveal" id="m5" style="--delay:.24s"><div class="frame"><img src="assets/crew-5.webp" alt="Guitarist and singer" loading="lazy"></div><figcaption><h3>Member name</h3><span>Guitar &amp; vocals</span></figcaption></figure>
+      <figure class="crew-card reveal" id="m6" style="--delay:.30s"><div class="frame"><img src="assets/crew-6.webp" alt="Tin whistle player" loading="lazy"></div><figcaption><h3>Member name</h3><span>Tin whistle</span></figcaption></figure>
+      <figure class="crew-card reveal" id="m7" style="--delay:.36s"><div class="frame"><img src="assets/crew-7.webp" alt="Fiddle player" loading="lazy"></div><figcaption><h3>Member name</h3><span>Fiddle</span></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LISTEN ============ -->
+<section id="listen" class="wood">
+  <div class="wrap">
+    <div class="head reveal">
+      <div class="divider" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 4c6 6 6 10 0 16-6-6-6-10 0-16Zm0 32c-6-6-6-10 0-16 6 6 6 10 0 16ZM4 20c6-6 10-6 16 0-6 6-10 6-16 0Zm32 0c-6 6-10 6-16 0 6-6 10-6 16 0Z"/><circle cx="20" cy="20" r="13"/></svg></div>
+      <p class="kicker">On the turntable</p>
+      <h2>Have a listen</h2>
+    </div>
+    <div class="listen-grid" id="listen-grid">
+      <div class="turntable reveal" aria-hidden="true"><div class="vinyl"></div><div class="tonearm"></div></div>
+      <div class="track-card reveal" style="--delay:.15s">
+        <p class="kicker">Now spinning</p>
+        <h3>Go Home Soldiers</h3>
+        <p class="by">The Tullamore Crew</p>
+        <div class="player">
+          <button class="btn play-big" data-play aria-label="Play Go Home Soldiers"><span data-icon>▶</span></button>
+          <div class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          <div class="scrub">
+            <span id="t-cur">0:00</span>
+            <input id="seek" type="range" min="0" max="100" step="0.1" value="0" aria-label="Seek">
+            <span id="t-dur">–:––</span>
+          </div>
+        </div>
+        <!-- EDIT: point these at the band's real pages, or delete the ones you don't use -->
+        <div class="stream">
+          <a class="btn ghost" href="#" data-todo>Spotify</a>
+          <a class="btn ghost" href="#" data-todo>Bandcamp</a>
+          <a class="btn ghost" href="#" data-todo>YouTube</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GIGS ============ -->
+<section id="gigs" class="baize">
+  <div class="wrap">
+    <div class="head reveal">
+      <div class="divider" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 4c6 6 6 10 0 16-6-6-6-10 0-16Zm0 32c-6-6-6-10 0-16 6 6 6 10 0 16ZM4 20c6-6 10-6 16 0-6 6-10 6-16 0Zm32 0c-6 6-10 6-16 0 6-6 10-6 16 0Z"/><circle cx="20" cy="20" r="13"/></svg></div>
+      <p class="kicker">Catch us live</p>
+      <h2>Upcoming gigs</h2>
+    </div>
+    <div class="board reveal">
+      <h3>~ On the board ~</h3>
+      <ul class="gigs" id="gig-list"></ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BOOK ============ -->
+<section id="book" class="wood">
+  <div class="wrap">
+    <div class="head reveal">
+      <div class="divider" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 4c6 6 6 10 0 16-6-6-6-10 0-16Zm0 32c-6-6-6-10 0-16 6 6 6 10 0 16ZM4 20c6-6 10-6 16 0-6 6-10 6-16 0Zm32 0c-6 6-10 6-16 0 6-6 10-6 16 0Z"/><circle cx="20" cy="20" r="13"/></svg></div>
+      <p class="kicker">Bookings</p>
+      <h2>Bring the Crew to you</h2>
+    </div>
+    <div class="book-grid">
+      <div class="reveal">
+        <p>Pubs, weddings, festivals, St. Patrick's Day, or a big birthday. If there's a room and a crowd, we'll fill it.</p>
+        <ul>
+          <li>Full seven-piece band or a smaller acoustic set</li>
+          <li>We bring our own PA for most rooms</li>
+          <li>Traditional sets, singalongs, or a mix of both</li>
+        </ul>
+        <p>Or email us directly at <a id="mail-link" href="#">bookings@example.com</a>.</p>
+      </div>
+      <form id="book-form" class="reveal" style="--delay:.15s" novalidate>
+        <label>Your name<input name="who" autocomplete="name" required></label>
+        <label>Email<input name="email" type="email" autocomplete="email" required></label>
+        <label>Date<input name="date" type="date"></label>
+        <label>Type of event
+          <select name="type"><option>Pub / bar</option><option>Wedding</option><option>Festival</option><option>Private party</option><option>Corporate</option><option>Other</option></select>
+        </label>
+        <label class="full">Venue &amp; town<input name="venue"></label>
+        <label class="full">Tell us about it<textarea name="message"></textarea></label>
+        <button class="btn" type="submit">Send enquiry ☘</button>
+        <p class="form-note" id="form-note">This opens your email app with the details filled in.</p>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p class="slainte">Sláinte!</p>
+    <!-- EDIT: real social links -->
+    <ul class="socials">
+      <li><a href="#" data-todo>Facebook</a></li>
+      <li><a href="#" data-todo>Instagram</a></li>
+      <li><a href="#" data-todo>YouTube</a></li>
+      <li><a href="#" data-todo>Spotify</a></li>
+    </ul>
+    <small>© <span id="year">2026</span> The Tullamore Crew</small>
+  </div>
+</footer>
+
+<!-- floating mini player, carried over from the original page -->
+<audio id="music" loop preload="metadata" src="assets/go-home-soldiers.mp3"></audio>
+<div class="music" id="mini">
+  <button data-play aria-label="Play music" title="Play Go Home Soldiers"><span data-icon>▶</span></button>
+  <span class="now">♫ Go Home Soldiers</span>
+  <details class="music-options">
+    <summary aria-label="Music settings" title="Music settings">♫</summary>
+    <div class="music-popover">
+      <div>Go Home Soldiers<small>The Tullamore Crew</small></div>
+      <label>Volume <input id="volume" aria-label="Music volume" type="range" min="0" max="1" step="0.01" value="0.7"></label>
+    </div>
+  </details>
+  <span id="music-status" role="status"></span>
+</div>
+
+<script>
+/* ======================================================
+   EDIT ME: band details
+   ====================================================== */
+const BOOKING_EMAIL = 'bookings@example.com';
+
+// Upcoming gigs. Past dates hide themselves automatically.
+// date: 'YYYY-MM-DD'; link and price are optional.
+const GIGS = [
+  { date: '2026-10-17', venue: 'Venue name', town: 'Town', time: '9:00 PM', price: 'Free entry', link: '' },
+  { date: '2026-10-31', venue: 'Venue name', town: 'Town', time: '8:30 PM', price: 'Tickets', link: '#' },
+  { date: '2026-11-14', venue: 'Venue name', town: 'Town', time: '9:00 PM', price: '', link: '' },
+];
+
+/* ====================================================== */
+document.documentElement.classList.add('js');
+const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+$('#year').textContent = new Date().getFullYear();
+
+/* ---------- nav ---------- */
+const nav = $('#nav'), hero = $('.hero');
+new IntersectionObserver(([e]) => nav.classList.toggle('solid', !e.isIntersecting), { rootMargin: '-80px 0px 0px 0px' }).observe(hero);
+$('#menu-btn').onclick = () => { const open = nav.classList.toggle('open'); $('#menu-btn').setAttribute('aria-expanded', open); };
+$$('#menu a').forEach(a => a.addEventListener('click', () => { nav.classList.remove('open'); $('#menu-btn').setAttribute('aria-expanded', false); }));
+const links = $$('#menu a');
+const spy = new IntersectionObserver(entries => entries.forEach(e => {
+  if (e.isIntersecting) links.forEach(a => a.setAttribute('aria-current', a.hash === '#' + e.target.id));
+}), { rootMargin: '-45% 0px -50% 0px' });
+$$('main section[id]').forEach(s => spy.observe(s));
+
+/* ---------- scroll reveals ---------- */
+const rev = new IntersectionObserver(entries => entries.forEach(e => {
+  if (e.isIntersecting) { e.target.classList.add('in'); rev.unobserve(e.target); }
+}), { threshold: .15 });
+$$('.reveal').forEach(el => rev.observe(el));
+
+/* ---------- motion toggle + hero parallax ---------- */
+let paused = reduceMotion, heroVisible = true;
+const motionBtn = $('#motion');
+const setPaused = p => { paused = p; document.body.classList.toggle('paused', p); motionBtn.textContent = p ? 'Play motion' : 'Pause motion'; };
+setPaused(reduceMotion);
+motionBtn.onclick = () => setPaused(!paused);
+new IntersectionObserver(([e]) => heroVisible = e.isIntersecting).observe(hero);
+
+const scene = $('#scene');
+if (!reduceMotion) {
+  let ticking = false;
+  addEventListener('scroll', () => {
+    if (ticking) return; ticking = true;
+    requestAnimationFrame(() => { ticking = false; if (heroVisible) scene.style.setProperty('--py', Math.min(scrollY, innerHeight) * .3 + 'px'); });
+  }, { passive: true });
+}
+
+/* ---------- dust motes in the lantern light ---------- */
+(() => {
+  const cv = $('#dust'), ctx = cv.getContext('2d');
+  let W, H, motes = [];
+  const size = () => {
+    const r = cv.getBoundingClientRect(), dpr = Math.min(devicePixelRatio || 1, 2);
+    W = cv.width = r.width * dpr; H = cv.height = r.height * dpr;
+    const n = Math.round(Math.min(90, r.width / 18));
+    motes = Array.from({ length: n }, () => ({
+      x: Math.random() * W, y: Math.random() * H * .8,
+      s: (Math.random() * 2 + 1.5) * dpr, vx: (Math.random() - .5) * .15 * dpr, vy: -(Math.random() * .18 + .04) * dpr,
+      t: Math.random() * 6.28, ts: Math.random() * .02 + .008,
+    }));
+  };
+  size(); addEventListener('resize', size);
+  const draw = () => {
+    if (!paused && heroVisible && !document.hidden) {
+      ctx.clearRect(0, 0, W, H);
+      for (const m of motes) {
+        m.t += m.ts; m.x += m.vx + Math.sin(m.t) * .12; m.y += m.vy;
+        if (m.y < -10) { m.y = H * (.5 + Math.random() * .3); m.x = Math.random() * W; }
+        const a = (Math.sin(m.t * 1.7) * .5 + .5) * .55 + .1;
+        ctx.fillStyle = `rgba(255,214,140,${a})`;
+        ctx.fillRect(Math.round(m.x), Math.round(m.y), m.s, m.s); // square motes to match the pixel art
+      }
+    }
+    requestAnimationFrame(draw);
+  };
+  if (!reduceMotion) draw();
+})();
+
+/* ---------- music (one <audio>, many controls) ---------- */
+const music = $('#music'), status = $('#music-status');
+music.volume = .7;
+const fmt = s => isFinite(s) ? Math.floor(s / 60) + ':' + String(Math.floor(s % 60)).padStart(2, '0') : '–:––';
+const toggle = async () => {
+  if (music.paused) { try { await music.play(); status.textContent = ''; } catch (e) { status.textContent = 'Tap Play again to start.'; } }
+  else music.pause();
+};
+$$('[data-play]').forEach(b => b.addEventListener('click', toggle));
+const sync = () => {
+  const on = !music.paused;
+  $$('[data-play]').forEach(b => {
+    b.querySelector('[data-icon]').textContent = on ? 'Ⅱ' : '▶';
+    const l = b.querySelector('[data-label]'); if (l) l.textContent = on ? 'Pause' : 'Hear the Crew';
+    b.setAttribute('aria-label', on ? 'Pause music' : 'Play music');
+  });
+  $('#mini').classList.toggle('playing', on);
+  $('#listen-grid').classList.toggle('playing', on);
+};
+music.addEventListener('play', sync); music.addEventListener('pause', sync);
+music.addEventListener('error', () => status.textContent = 'Audio could not load.');
+$('#volume').oninput = e => music.volume = Number(e.target.value);
+const seek = $('#seek');
+let seeking = false;
+music.addEventListener('loadedmetadata', () => $('#t-dur').textContent = fmt(music.duration));
+music.addEventListener('timeupdate', () => {
+  $('#t-cur').textContent = fmt(music.currentTime);
+  if (!seeking && music.duration) seek.value = music.currentTime / music.duration * 100;
+});
+seek.addEventListener('input', () => { seeking = true; if (music.duration) $('#t-cur').textContent = fmt(seek.value / 100 * music.duration); });
+seek.addEventListener('change', () => { if (music.duration) music.currentTime = seek.value / 100 * music.duration; seeking = false; });
+
+/* ---------- notes drift off the band while the music plays ---------- */
+const players = [36.6, 44, 51.3, 60.5, 70.3, 78.6, 86.1];
+const glyphs = ['♪', '♫', '♩', '♬'];
+setInterval(() => {
+  if (music.paused || paused || reduceMotion || !heroVisible || document.hidden) return;
+  const n = document.createElement('span');
+  n.className = 'note';
+  n.textContent = glyphs[Math.random() * glyphs.length | 0];
+  n.style.left = players[Math.random() * players.length | 0] + (Math.random() * 3 - 1.5) + '%';
+  n.style.top = 30 + Math.random() * 8 + '%';
+  n.style.setProperty('--dx', (Math.random() * 60 - 30) + 'px');
+  n.style.setProperty('--rot', (Math.random() * 40 - 20) + 'deg');
+  n.addEventListener('animationend', () => n.remove());
+  scene.appendChild(n);
+}, 450);
+
+/* ---------- gigs ---------- */
+(() => {
+  const list = $('#gig-list');
+  const today = new Date(); today.setHours(0, 0, 0, 0);
+  const upcoming = GIGS.map(g => ({ ...g, d: new Date(g.date + 'T00:00:00') }))
+    .filter(g => g.d >= today).sort((a, b) => a.d - b.d);
+  if (!upcoming.length) { list.innerHTML = '<li class="empty">No dates on the board just now. Check back soon!</li>'; return; }
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  list.innerHTML = upcoming.map(g => `
+    <li class="gig">
+      <div class="date">${g.d.toLocaleDateString('en', { month: 'short' }).toUpperCase()}<b>${g.d.getDate()}</b>${g.d.toLocaleDateString('en', { weekday: 'short' })}</div>
+      <div class="where"><strong>${esc(g.venue)}</strong><span>${esc(g.town)}${g.time ? ' · ' + esc(g.time) : ''}</span></div>
+      <div class="act">${g.link ? `<a class="btn ghost" href="${esc(g.link)}" target="_blank" rel="noopener">${esc(g.price || 'Details')}</a>` : g.price ? `<span class="free">${esc(g.price)}</span>` : ''}</div>
+    </li>`).join('');
+})();
+
+/* ---------- booking form -> email ---------- */
+$('#mail-link').href = 'mailto:' + BOOKING_EMAIL;
+$('#mail-link').textContent = BOOKING_EMAIL;
+$('#book-form').addEventListener('submit', e => {
+  e.preventDefault();
+  const f = e.target, note = $('#form-note');
+  if (!f.who.value.trim() || !f.email.value || !f.email.checkValidity()) { note.textContent = 'Please add your name and a valid email.'; (f.who.value.trim() ? f.email : f.who).focus(); return; }
+  const v = n => f[n].value.trim() || '-';
+  const body = `Name: ${v('who')}\nEmail: ${v('email')}\nDate: ${v('date')}\nEvent: ${v('type')}\nVenue: ${v('venue')}\n\n${f.message.value.trim()}`;
+  location.href = `mailto:${BOOKING_EMAIL}?subject=${encodeURIComponent('Booking enquiry: ' + v('type') + ' ' + (f.date.value || ''))}&body=${encodeURIComponent(body)}`;
+  note.textContent = 'Your email app should open now. If it doesn\'t, write to ' + BOOKING_EMAIL + '.';
+});
+</script>
+</body>
+</html>
