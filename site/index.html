@@ -165,6 +165,10 @@ section{position:relative;padding:96px 0}
 .crew-card figcaption span{display:block;font:19px/1.15 var(--pixel);letter-spacing:1px;text-transform:uppercase;color:var(--gold)}
 .crew-card p{margin:10px 0 0;font-size:17px;line-height:1.5;color:var(--cream-dim)}
 .crew-grid{gap:44px 28px}
+/* bios: one toggle shows or hides them all (shown if JS never runs) */
+.bios-toggle{margin-top:18px;font-size:19px;padding:9px 16px}
+.crew-grid.bios-hidden .crew-card p{display:none}
+.crew-grid:not(.bios-hidden) .crew-card p{animation:fadeUp .35s both}
 
 /* ---------- listen ---------- */
 .listen-grid{display:grid;grid-template-columns:auto 1fr;gap:56px;align-items:center}
@@ -373,8 +377,9 @@ footer small{font:17px var(--pixel);color:var(--cream-dim);letter-spacing:1px}
       <p class="kicker">Meet the band</p>
       <h2>Seven on the stage</h2>
       <p>Point at anyone in the pub scene up top to see who they are.</p>
+      <button class="btn ghost bios-toggle" type="button" aria-expanded="true" aria-controls="crew-grid" hidden>Hide bios</button>
     </div>
-    <div class="crew-grid">
+    <div class="crew-grid" id="crew-grid">
       <figure class="crew-card reveal" id="m1" style="--delay:0s"><div class="frame"><img src="assets/crew-1.webp" alt="Adam Gregory, pixel-art portrait" loading="lazy"></div><figcaption><h3>Adam Gregory</h3><span>Bass</span><p>Adam has been slapping the bass almost to the point of legal assault and battery, but his attorneys ensure it won't affect his musical career.</p></figcaption></figure>
       <figure class="crew-card reveal" id="m2" style="--delay:.06s"><div class="frame"><img src="assets/crew-2.webp" alt="Luke Marchie, pixel-art portrait" loading="lazy"></div><figcaption><h3>Luke Marchie</h3><span>Guitar, Vocals, Mandolin, Accordion, Bass</span><p>Luke has been playing guitar for over 15 years and has performed with dozens of original and cover bands throughout Philadelphia, New Jersey, and New York City. His more recent music projects include The Tullamore Crew, The Carnival Ghosts, The McLane Family Band, The Working Group, and his children's band Pancakes for Lunch.</p></figcaption></figure>
       <figure class="crew-card reveal" id="m3" style="--delay:.12s"><div class="frame"><img src="assets/crew-3.webp" alt="Brian Charniga, pixel-art portrait" loading="lazy"></div><figcaption><h3>Brian Charniga</h3><span>Rhythm Guitar</span><p>As the newest member of the band Brian needs to wear his civvies until he can sing that 5th, but also keeps our rhythm guitar on beat.</p></figcaption></figure>
@@ -639,6 +644,18 @@ setInterval(() => {
   n.addEventListener('animationend', () => n.remove());
   scene.appendChild(n);
 }, 450);
+
+/* ---------- crew bios: collapsed by default, one button for all ---------- */
+(() => {
+  const grid = $('#crew-grid'), btn = $('.bios-toggle');
+  const set = open => {
+    grid.classList.toggle('bios-hidden', !open);
+    btn.setAttribute('aria-expanded', open);
+    btn.textContent = open ? 'Hide bios' : 'Show bios';
+  };
+  set(false); btn.hidden = false;
+  btn.addEventListener('click', () => set(btn.getAttribute('aria-expanded') !== 'true'));
+})();
 
 /* ---------- gigs ---------- */
 (() => {
