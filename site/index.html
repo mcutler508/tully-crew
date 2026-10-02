@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>The Tullamore Crew — Irish Folk Band</title>
-<meta name="description" content="The Tullamore Crew: a seven-piece Irish folk band playing ballads, reels and rebel songs. Gig dates, music and bookings.">
+<title>The Tullamore Crew — Irish &amp; Celtic Band, Philadelphia</title>
+<meta name="description" content="The Tullamore Crew has been playing Irish Songs and Tunes throughout Philadelphia since 2012. Book us anywhere in the tri-state area.">
 <meta property="og:title" content="The Tullamore Crew">
-<meta property="og:description" content="Seven players, one stage. Irish ballads, reels and rebel songs.">
+<meta property="og:description" content="Our Parents' Favorite Irish Band in Philadelphia. Playing Irish Songs and Tunes since 2012.">
 <meta property="og:image" content="assets/pub-scene.jpg">
 <meta name="theme-color" content="#071b17">
 <link rel="preload" as="image" href="assets/pub-scene.webp" type="image/webp">
@@ -99,9 +99,6 @@ h1,h2,h3{font-family:var(--display);font-weight:400;color:var(--gold-hi);line-he
 .btn.ghost{background:#071b17b8;color:var(--gold-hi);box-shadow:0 4px 0 #000a}
 .scroll-cue{position:absolute;left:50%;bottom:8px;transform:translateX(-50%);font:16px var(--pixel);letter-spacing:2px;color:var(--gold);text-decoration:none;z-index:3;animation:bob 1.6s steps(2) infinite}
 @keyframes bob{50%{transform:translate(-50%,4px)}}
-.hero-tools{position:absolute;right:16px;top:calc(var(--nav-h) + 8px);z-index:3;display:flex;gap:8px}
-.chip{background:#071b17b0;border:1px solid #e5ba6970;color:var(--cream);font:16px var(--pixel);letter-spacing:1px;padding:4px 10px;border-radius:4px;cursor:pointer;opacity:.7}
-.chip:hover,.chip:focus-visible{opacity:1}
 @media(max-width:600px){.hero-copy{padding-bottom:40px}.scroll-cue{display:none}.spot span{font-size:15px}}
 
 /* paused / reduced motion */
@@ -135,26 +132,29 @@ section{position:relative;padding:96px 0}
 /* ---------- story ---------- */
 .story-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
 .story-grid p{margin:0 0 1em}
-.story-grid p:first-of-type::first-letter{font-family:var(--display);float:left;font-size:76px;line-height:.8;padding:8px 10px 0 0;color:var(--gold)}
+.story-grid > div > p:first-of-type::first-letter{font-family:var(--display);float:left;font-size:76px;line-height:.8;padding:8px 10px 0 0;color:var(--gold)}
 .quote{margin:0;padding:34px 30px;border:2px solid var(--gold-lo);border-radius:6px;background:#071b17;box-shadow:inset 0 0 0 6px #071b17,inset 0 0 0 7px #ba904866,0 14px 30px #000a;text-align:center}
 .quote blockquote{margin:0;font-size:clamp(24px,2.6vw,30px);font-style:italic;line-height:1.35;color:var(--cream)}
 .quote figcaption{margin-top:16px;font:20px var(--pixel);letter-spacing:1px;color:var(--gold)}
-.facts{display:flex;gap:28px;margin-top:28px;flex-wrap:wrap}
-.facts div{font:20px/1.1 var(--pixel);color:var(--cream-dim);letter-spacing:1px;text-transform:uppercase}
-.facts b{display:block;font:400 42px/1 var(--display);color:var(--gold-hi);margin-bottom:4px}
+.sounds{margin-top:28px}
+.sounds ul{display:flex;flex-wrap:wrap;gap:10px 14px;list-style:none;margin:0;padding:0}
+.sounds li{font-family:var(--display);font-size:22px;color:var(--gold-hi);padding:6px 14px;border:1px solid #ba904866;border-radius:4px;background:#00000033}
 @media(max-width:820px){.story-grid{grid-template-columns:1fr;gap:36px}}
 
 /* ---------- crew ---------- */
 .crew-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:20px}
-.crew-card{margin:0;flex:1 1 130px;max-width:170px;text-align:center;scroll-margin-top:calc(var(--nav-h) + 20px)}
+.crew-card{margin:0;flex:1 1 230px;max-width:290px;text-align:center;scroll-margin-top:calc(var(--nav-h) + 20px)}
 .frame{position:relative;padding:8px;background:linear-gradient(145deg,#c99b52,#7a5424 45%,#d8ae64 55%,#6b4a1f);border-radius:4px;box-shadow:0 10px 24px #000b}
 .frame::after{content:"";position:absolute;inset:8px;box-shadow:inset 0 0 0 2px #00000080,inset 0 0 22px #000a;pointer-events:none}
+.crew-card .frame{width:min(100%,170px);margin-inline:auto}
 .crew-card img{width:100%;aspect-ratio:156/180;object-fit:cover;image-rendering:pixelated;background:#0c2a22}
 .crew-card:hover img,.crew-card:target img,.crew-card:focus-within img{animation:idle .5s steps(2) infinite}
 @keyframes idle{50%{transform:translateY(-3px)}}
 .crew-card:target .frame{box-shadow:0 0 0 3px var(--gold-hi),0 0 40px #ffcf7a66}
 .crew-card h3{font-size:22px;margin:16px 0 2px}
-.crew-card figcaption span{font:19px var(--pixel);letter-spacing:1px;text-transform:uppercase;color:var(--gold)}
+.crew-card figcaption span{display:block;font:19px/1.15 var(--pixel);letter-spacing:1px;text-transform:uppercase;color:var(--gold)}
+.crew-card p{margin:10px 0 0;font-size:17px;line-height:1.5;color:var(--cream-dim)}
+.crew-grid{gap:44px 28px}
 
 /* ---------- listen ---------- */
 .listen-grid{display:grid;grid-template-columns:auto 1fr;gap:56px;align-items:center}
@@ -181,6 +181,12 @@ section{position:relative;padding:96px 0}
 .scrub input{flex:1;accent-color:var(--gold)}
 .stream{margin-top:26px;display:flex;gap:10px;flex-wrap:wrap}
 @media(max-width:820px){.listen-grid{grid-template-columns:1fr;gap:40px}}
+.video{margin:72px auto 0;width:min(760px,100%);text-align:center}
+.video h3{font-size:clamp(24px,3vw,32px);margin-top:16px}
+.yt{position:relative;display:block;width:100%;aspect-ratio:16/9;padding:0;border:2px solid var(--gold-lo);border-radius:6px;overflow:hidden;background:#000;cursor:pointer;box-shadow:0 14px 30px #000a}
+.yt img,.yt iframe{width:100%;height:100%;object-fit:cover;border:0;display:block}
+.yt-play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:76px;height:76px;border-radius:50%;display:grid;place-items:center;font-size:30px;padding-left:5px;background:var(--gold);color:var(--ink);box-shadow:0 4px 0 var(--gold-lo),0 8px 24px #000a;transition:transform .15s}
+.yt:hover .yt-play,.yt:focus-visible .yt-play{transform:translate(-50%,-50%) scale(1.08)}
 
 /* ---------- gigs (chalkboard) ---------- */
 .board{position:relative;padding:clamp(22px,4vw,44px);border-radius:6px;border:14px solid transparent;background:
@@ -204,8 +210,11 @@ section{position:relative;padding:96px 0}
 
 /* ---------- booking ---------- */
 .book-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:start}
-.book-grid ul{padding-left:1.1em;margin:18px 0}
-.book-grid li::marker{content:"☘  ";color:var(--gold)}
+.features{margin:0 0 22px}
+.features dt{font-family:var(--display);font-size:24px;color:var(--gold-hi);margin-top:22px}
+.features dt:first-child{margin-top:0}
+.features dt::before{content:"☘ ";color:var(--gold);font-size:.8em}
+.features dd{margin:4px 0 0}
 form{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:28px;background:#071b17;border:2px solid var(--gold-lo);border-radius:6px;box-shadow:inset 0 0 0 6px #071b17,inset 0 0 0 7px #ba904855,0 14px 30px #000a}
 form label{display:grid;gap:6px;font:19px var(--pixel);letter-spacing:1px;text-transform:uppercase;color:var(--gold)}
 form .full{grid-column:1/-1}
@@ -295,24 +304,20 @@ footer small{font:17px var(--pixel);color:var(--cream-dim);letter-spacing:1px}
     <b class="ember" style="left:98.6%;animation-delay:-2.4s"></b>
     <canvas id="dust" aria-hidden="true"></canvas>
     <!-- hover a player in the scene to see who it is; click to jump to their card -->
-    <a class="spot" href="#m1" style="left:36.6%"><span><b>Bass</b> · Member name</span></a>
-    <a class="spot" href="#m2" style="left:44%"><span><b>Mandolin</b> · Member name</span></a>
-    <a class="spot" href="#m3" style="left:51.3%"><span><b>Guitar &amp; vocals</b> · Member name</span></a>
-    <a class="spot" href="#m4" style="left:60.5%"><span><b>Drums</b> · Member name</span></a>
-    <a class="spot" href="#m5" style="left:70.3%"><span><b>Guitar &amp; vocals</b> · Member name</span></a>
-    <a class="spot" href="#m6" style="left:78.6%;width:5.5%"><span><b>Tin whistle</b> · Member name</span></a>
-    <a class="spot" href="#m7" style="left:86.1%"><span><b>Fiddle</b> · Member name</span></a>
-  </div>
-
-  <div class="hero-tools">
-    <button class="chip" id="motion">Pause motion</button>
+    <a class="spot" href="#m1" style="left:36.6%"><span><b>Bass</b> · Adam Gregory</span></a>
+    <a class="spot" href="#m2" style="left:44%"><span><b>Mandolin</b> · Luke Marchie</span></a>
+    <a class="spot" href="#m3" style="left:51.3%"><span><b>Rhythm guitar</b> · Brian Charniga</span></a>
+    <a class="spot" href="#m4" style="left:60.5%"><span><b>Bodhrán</b> · Mike Cutler</span></a>
+    <a class="spot" href="#m5" style="left:70.3%"><span><b>Guitar</b> · Miles Moser</span></a>
+    <a class="spot" href="#m6" style="left:78.6%;width:5.5%"><span><b>Tin whistle</b> · Alon Hafri</span></a>
+    <a class="spot" href="#m7" style="left:86.1%"><span><b>Violin</b> · Peter Clark</span></a>
   </div>
 
   <div class="hero-copy">
     <div class="wrap">
       <div>
-        <p class="kicker">Irish folk · Live music · Pints raised</p>
-        <p>Seven players, one stage, and a night of ballads, reels and rebel songs.</p>
+        <p class="kicker">Irish &amp; Celtic music · Philadelphia · Since 2012</p>
+        <p>Our Parents' Favorite Irish Band in Philadelphia.</p>
       </div>
       <div class="ctas">
         <button class="btn" data-play><span data-icon>▶</span> <span data-label>Hear the Crew</span></button>
@@ -329,17 +334,15 @@ footer small{font:17px var(--pixel);color:var(--cream-dim);letter-spacing:1px}
     <div class="head reveal">
       <div class="divider" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 4c6 6 6 10 0 16-6-6-6-10 0-16Zm0 32c-6-6-6-10 0-16 6 6 6 10 0 16ZM4 20c6-6 10-6 16 0-6 6-10 6-16 0Zm32 0c-6 6-10 6-16 0 6-6 10-6 16 0Z"/><circle cx="20" cy="20" r="13"/></svg></div>
       <p class="kicker">The story</p>
-      <h2>Born in the snug</h2>
+      <h2>Playing Philly since 2012</h2>
     </div>
     <div class="story-grid">
       <div class="reveal">
-        <!-- EDIT: replace with the band's real story -->
-        <p>The Tullamore Crew started the way the best bands do: a few friends, a few instruments, and a corner of the pub that nobody else wanted. One tune turned into a session, and the session turned into a band.</p>
-        <p>Now it's seven of us on bass, mandolin, guitars, drums, tin whistle and fiddle. We play the old songs loud and the slow ones soft, and we're not leaving until the last chorus has the whole room singing.</p>
-        <div class="facts">
-          <div><b>7</b>players</div>
-          <div><b>∞</b>choruses</div>
-          <div><b>1</b>last song (never)</div>
+        <p>The Tullamore Crew has been playing Irish Songs and Tunes throughout Philadelphia since 2012. We have the equipment and talent to fill a venue or provide intimate cocktail or corporate entertainment.</p>
+        <p>We've put plenty of time picking set lists and songs that can appeal to any type of Celtic music fan.</p>
+        <div class="sounds">
+          <p class="kicker">We kinda sound like</p>
+          <ul><li>The Chieftains</li><li>The Pogues</li><li>The High Kings</li><li>The Dubliners</li></ul>
         </div>
       </div>
       <figure class="quote reveal" style="--delay:.15s">
@@ -356,19 +359,18 @@ footer small{font:17px var(--pixel);color:var(--cream-dim);letter-spacing:1px}
   <div class="wrap">
     <div class="head reveal">
       <div class="divider" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 4c6 6 6 10 0 16-6-6-6-10 0-16Zm0 32c-6-6-6-10 0-16 6 6 6 10 0 16ZM4 20c6-6 10-6 16 0-6 6-10 6-16 0Zm32 0c-6 6-10 6-16 0 6-6 10-6 16 0Z"/><circle cx="20" cy="20" r="13"/></svg></div>
-      <p class="kicker">Meet the crew</p>
+      <p class="kicker">Meet the band</p>
       <h2>Seven on the stage</h2>
       <p>Point at anyone in the pub scene up top to see who they are.</p>
     </div>
-    <!-- EDIT: put each member's real name in the <h3> (and in the matching .spot label in the hero) -->
     <div class="crew-grid">
-      <figure class="crew-card reveal" id="m1" style="--delay:0s"><div class="frame"><img src="assets/crew-1.webp" alt="Bass player" loading="lazy"></div><figcaption><h3>Member name</h3><span>Bass</span></figcaption></figure>
-      <figure class="crew-card reveal" id="m2" style="--delay:.06s"><div class="frame"><img src="assets/crew-2.webp" alt="Mandolin player" loading="lazy"></div><figcaption><h3>Member name</h3><span>Mandolin</span></figcaption></figure>
-      <figure class="crew-card reveal" id="m3" style="--delay:.12s"><div class="frame"><img src="assets/crew-3.webp" alt="Guitarist and singer" loading="lazy"></div><figcaption><h3>Member name</h3><span>Guitar &amp; vocals</span></figcaption></figure>
-      <figure class="crew-card reveal" id="m4" style="--delay:.18s"><div class="frame"><img src="assets/crew-4.webp" alt="Drummer" loading="lazy"></div><figcaption><h3>Member name</h3><span>Drums</span></figcaption></figure>
-      <figure class="crew-card reveal" id="m5" style="--delay:.24s"><div class="frame"><img src="assets/crew-5.webp" alt="Guitarist and singer" loading="lazy"></div><figcaption><h3>Member name</h3><span>Guitar &amp; vocals</span></figcaption></figure>
-      <figure class="crew-card reveal" id="m6" style="--delay:.30s"><div class="frame"><img src="assets/crew-6.webp" alt="Tin whistle player" loading="lazy"></div><figcaption><h3>Member name</h3><span>Tin whistle</span></figcaption></figure>
-      <figure class="crew-card reveal" id="m7" style="--delay:.36s"><div class="frame"><img src="assets/crew-7.webp" alt="Fiddle player" loading="lazy"></div><figcaption><h3>Member name</h3><span>Fiddle</span></figcaption></figure>
+      <figure class="crew-card reveal" id="m1" style="--delay:0s"><div class="frame"><img src="assets/crew-1.webp" alt="Adam Gregory, pixel-art portrait" loading="lazy"></div><figcaption><h3>Adam Gregory</h3><span>Bass</span><p>Adam has been slapping the bass almost to the point of legal assault and battery, but his attorneys ensure it won't affect his musical career.</p></figcaption></figure>
+      <figure class="crew-card reveal" id="m2" style="--delay:.06s"><div class="frame"><img src="assets/crew-2.webp" alt="Luke Marchie, pixel-art portrait" loading="lazy"></div><figcaption><h3>Luke Marchie</h3><span>Guitar, Vocals, Mandolin, Accordion, Bass</span><p>Luke has been playing guitar for over 15 years and has performed with dozens of original and cover bands throughout Philadelphia, New Jersey, and New York City. His more recent music projects include The Tullamore Crew, The Carnival Ghosts, The McLane Family Band, The Working Group, and his children's band Pancakes for Lunch.</p></figcaption></figure>
+      <figure class="crew-card reveal" id="m3" style="--delay:.12s"><div class="frame"><img src="assets/crew-3.webp" alt="Brian Charniga, pixel-art portrait" loading="lazy"></div><figcaption><h3>Brian Charniga</h3><span>Rhythm Guitar</span><p>As the newest member of the band Brian needs to wear his civvies until he can sing that 5th, but also keeps our rhythm guitar on beat.</p></figcaption></figure>
+      <figure class="crew-card reveal" id="m4" style="--delay:.18s"><div class="frame"><img src="assets/crew-4.webp" alt="Mike Cutler, pixel-art portrait" loading="lazy"></div><figcaption><h3>Mike Cutler</h3><span>Bodhrán</span><p>Mike's tiny bodhrán may not attract the ladies, but it sure does keep our band tight whether we're playing jigs or reels. Some say he prefers a real drum-set.</p></figcaption></figure>
+      <figure class="crew-card reveal" id="m5" style="--delay:.24s"><div class="frame"><img src="assets/crew-5.webp" alt="Miles Moser, pixel-art portrait" loading="lazy"></div><figcaption><h3>Miles Moser</h3><span>Guitar</span><p>Miles may not show up for every practice, but when he does his driving guitar makes for a strange sight when you see it on the highway.</p></figcaption></figure>
+      <figure class="crew-card reveal" id="m6" style="--delay:.30s"><div class="frame"><img src="assets/crew-6.webp" alt="Alon Hafri, pixel-art portrait" loading="lazy"></div><figcaption><h3>Alon Hafri</h3><span>Tin Whistle</span><p>Alon's tin whistle has always been a cornerstone of The Tullamore Crew. Without it some doubt we'd even sound remotely like an Irish band.</p></figcaption></figure>
+      <figure class="crew-card reveal" id="m7" style="--delay:.36s"><div class="frame"><img src="assets/crew-7.webp" alt="Peter Clark, pixel-art portrait" loading="lazy"></div><figcaption><h3>Peter Clark</h3><span>Violin</span><p>As an obese youth Peter turned to the violin to fit in around school. It didn't work but luckily he can bring his bow laden chops to The Tullamore Crew.</p></figcaption></figure>
     </div>
   </div>
 </section>
@@ -379,7 +381,7 @@ footer small{font:17px var(--pixel);color:var(--cream-dim);letter-spacing:1px}
     <div class="head reveal">
       <div class="divider" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 4c6 6 6 10 0 16-6-6-6-10 0-16Zm0 32c-6-6-6-10 0-16 6 6 6 10 0 16ZM4 20c6-6 10-6 16 0-6 6-10 6-16 0Zm32 0c-6 6-10 6-16 0 6-6 10-6 16 0Z"/><circle cx="20" cy="20" r="13"/></svg></div>
       <p class="kicker">On the turntable</p>
-      <h2>Have a listen</h2>
+      <h2>Give us a listen</h2>
     </div>
     <div class="listen-grid" id="listen-grid">
       <div class="turntable reveal" aria-hidden="true"><div class="vinyl"></div><div class="tonearm"></div></div>
@@ -403,6 +405,14 @@ footer small{font:17px var(--pixel);color:var(--cream-dim);letter-spacing:1px}
           <a class="btn ghost" href="#" data-todo>YouTube</a>
         </div>
       </div>
+    </div>
+    <div class="video reveal">
+      <p class="kicker">Live on video</p>
+      <button class="yt" data-yt="MyBOvZDinrE" aria-label="Play Black Velvet Band by The Tullamore Crew (YouTube)">
+        <img src="https://i.ytimg.com/vi/MyBOvZDinrE/hqdefault.jpg" alt="" loading="lazy">
+        <span class="yt-play" aria-hidden="true">▶</span>
+      </button>
+      <h3>Black Velvet Band</h3>
     </div>
   </div>
 </section>
@@ -432,12 +442,14 @@ footer small{font:17px var(--pixel);color:var(--cream-dim);letter-spacing:1px}
     </div>
     <div class="book-grid">
       <div class="reveal">
-        <p>Pubs, weddings, festivals, St. Patrick's Day, or a big birthday. If there's a room and a crowd, we'll fill it.</p>
-        <ul>
-          <li>Full seven-piece band or a smaller acoustic set</li>
-          <li>We bring our own PA for most rooms</li>
-          <li>Traditional sets, singalongs, or a mix of both</li>
-        </ul>
+        <dl class="features">
+          <dt>Irish Music for any Occasion</dt>
+          <dd>We can supply a full PA system and enough performers and sound to fill a venue, or just a smaller intimate performance – whatever can work with your event.</dd>
+          <dt>Flexible Scheduling</dt>
+          <dd>The Tullamore Crew is ready to book. We can bring our gear and music to any location in the tri-state area.</dd>
+          <dt>No House Gear Necessary</dt>
+          <dd>We have the amps, the PA's, and the mics for any size gig. We'll even bring a light show if you need it.</dd>
+        </dl>
         <p>Or email us directly at <a id="mail-link" href="#">bookings@example.com</a>.</p>
       </div>
       <form id="book-form" class="reveal" style="--delay:.15s" novalidate>
@@ -467,7 +479,7 @@ footer small{font:17px var(--pixel);color:var(--cream-dim);letter-spacing:1px}
       <li><a href="#" data-todo>YouTube</a></li>
       <li><a href="#" data-todo>Spotify</a></li>
     </ul>
-    <small>© <span id="year">2026</span> The Tullamore Crew</small>
+    <small>© <span id="year">2026</span> The Tullamore Crew · Philadelphia, PA</small>
   </div>
 </footer>
 
@@ -523,12 +535,10 @@ const rev = new IntersectionObserver(entries => entries.forEach(e => {
 }), { threshold: .15 });
 $$('.reveal').forEach(el => rev.observe(el));
 
-/* ---------- motion toggle + hero parallax ---------- */
-let paused = reduceMotion, heroVisible = true;
-const motionBtn = $('#motion');
-const setPaused = p => { paused = p; document.body.classList.toggle('paused', p); motionBtn.textContent = p ? 'Play motion' : 'Pause motion'; };
-setPaused(reduceMotion);
-motionBtn.onclick = () => setPaused(!paused);
+/* ---------- reduced motion + hero parallax ---------- */
+const paused = reduceMotion;
+let heroVisible = true;
+document.body.classList.toggle('paused', paused);
 new IntersectionObserver(([e]) => heroVisible = e.isIntersecting).observe(hero);
 
 const scene = $('#scene');
@@ -634,6 +644,25 @@ setInterval(() => {
       <div class="act">${g.link ? `<a class="btn ghost" href="${esc(g.link)}" target="_blank" rel="noopener">${esc(g.price || 'Details')}</a>` : g.price ? `<span class="free">${esc(g.price)}</span>` : ''}</div>
     </li>`).join('');
 })();
+
+/* ---------- video: load YouTube only when asked ---------- */
+// YouTube refuses to play embeds that don't say which site they're on (error 153),
+// so pass the origin and keep the referrer. Opened from disk there is no origin:
+// send people to YouTube instead.
+$$('.yt').forEach(b => b.addEventListener('click', () => {
+  music.pause();
+  if (!/^https?:$/.test(location.protocol)) { window.open(`https://www.youtube.com/watch?v=${b.dataset.yt}`, '_blank', 'noopener'); return; }
+  const f = document.createElement('iframe');
+  f.src = `https://www.youtube.com/embed/${b.dataset.yt}?autoplay=1&rel=0&origin=${encodeURIComponent(location.origin)}`;
+  f.title = 'Black Velvet Band - The Tullamore Crew';
+  f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+  f.referrerPolicy = 'strict-origin-when-cross-origin';
+  f.allowFullscreen = true;
+  const box = document.createElement('div');
+  box.className = 'yt';
+  box.appendChild(f);
+  b.replaceWith(box);
+}));
 
 /* ---------- booking form -> email ---------- */
 $('#mail-link').href = 'mailto:' + BOOKING_EMAIL;
