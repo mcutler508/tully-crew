@@ -61,7 +61,6 @@ h1,h2,h3{font-family:var(--display);font-weight:400;color:var(--gold-hi);line-he
 /* ---------- hero (the animated pub) ---------- */
 .hero{position:relative;height:max(100svh,520px);overflow:hidden;background:var(--ink)}
 .scene{--tx:-50%;--py:0px;position:absolute;top:50%;left:50%;width:max(100%,calc(max(100svh,520px) * 1.7768));aspect-ratio:1672/941;transform:translate(var(--tx),calc(-50% + var(--py)));will-change:transform}
-@media(max-aspect-ratio:1/1){.scene{--tx:-60%}}
 .scene>img,.scene>picture img{width:100%;height:100%}
 .glow{position:absolute;width:9%;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,#ffd06f55,#ff9c1820 35%,transparent 70%);mix-blend-mode:screen;animation:flicker var(--d) infinite ease-in-out;pointer-events:none}
 .glow.sm{width:5%}
@@ -100,6 +99,17 @@ h1,h2,h3{font-family:var(--display);font-weight:400;color:var(--gold-hi);line-he
 .scroll-cue{position:absolute;left:50%;bottom:8px;transform:translateX(-50%);font:16px var(--pixel);letter-spacing:2px;color:var(--gold);text-decoration:none;z-index:3;animation:bob 1.6s steps(2) infinite}
 @keyframes bob{50%{transform:translate(-50%,4px)}}
 @media(max-width:600px){.hero-copy{padding-bottom:40px}.scroll-cue{display:none}.spot span{font-size:15px}}
+/* portrait screens and landscape phones: show the whole pub (contain, not cover) with the copy below it */
+.rotate-hint{display:none}
+@media(max-aspect-ratio:1/1),(max-height:500px){
+  .hero{height:auto}
+  .scene{position:relative;top:auto;left:auto;width:100%;margin-top:var(--nav-h);transform:none}
+  .hero-copy{position:relative;padding:20px 0 36px;background:none}
+  .scroll-cue{display:none}
+}
+@media(max-aspect-ratio:1/1) and (max-width:720px){
+  .rotate-hint{display:block;margin:14px 16px 0;text-align:center;font:16px/1.3 var(--pixel);letter-spacing:.5px;color:var(--gold);text-wrap:balance}
+}
 
 /* paused / reduced motion */
 .paused .scene *,.paused .scene{animation-play-state:paused!important}
@@ -307,11 +317,12 @@ footer small{font:17px var(--pixel);color:var(--cream-dim);letter-spacing:1px}
     <a class="spot" href="#m1" style="left:36.6%"><span><b>Bass</b> · Adam Gregory</span></a>
     <a class="spot" href="#m2" style="left:44%"><span><b>Mandolin</b> · Luke Marchie</span></a>
     <a class="spot" href="#m3" style="left:51.3%"><span><b>Rhythm guitar</b> · Brian Charniga</span></a>
-    <a class="spot" href="#m4" style="left:60.5%"><span><b>Bodhrán</b> · Mike Cutler</span></a>
+    <a class="spot" href="#m4" style="left:60.5%"><span><b>Bodhrán / Drum Kit</b> · Mike Cutler</span></a>
     <a class="spot" href="#m5" style="left:70.3%"><span><b>Guitar</b> · Miles Moser</span></a>
     <a class="spot" href="#m6" style="left:78.6%;width:5.5%"><span><b>Tin whistle</b> · Alon Hafri</span></a>
     <a class="spot" href="#m7" style="left:86.1%"><span><b>Violin</b> · Peter Clark</span></a>
   </div>
+  <p class="rotate-hint">↻ Turn your phone sideways for the full pub</p>
 
   <div class="hero-copy">
     <div class="wrap">
@@ -367,7 +378,7 @@ footer small{font:17px var(--pixel);color:var(--cream-dim);letter-spacing:1px}
       <figure class="crew-card reveal" id="m1" style="--delay:0s"><div class="frame"><img src="assets/crew-1.webp" alt="Adam Gregory, pixel-art portrait" loading="lazy"></div><figcaption><h3>Adam Gregory</h3><span>Bass</span><p>Adam has been slapping the bass almost to the point of legal assault and battery, but his attorneys ensure it won't affect his musical career.</p></figcaption></figure>
       <figure class="crew-card reveal" id="m2" style="--delay:.06s"><div class="frame"><img src="assets/crew-2.webp" alt="Luke Marchie, pixel-art portrait" loading="lazy"></div><figcaption><h3>Luke Marchie</h3><span>Guitar, Vocals, Mandolin, Accordion, Bass</span><p>Luke has been playing guitar for over 15 years and has performed with dozens of original and cover bands throughout Philadelphia, New Jersey, and New York City. His more recent music projects include The Tullamore Crew, The Carnival Ghosts, The McLane Family Band, The Working Group, and his children's band Pancakes for Lunch.</p></figcaption></figure>
       <figure class="crew-card reveal" id="m3" style="--delay:.12s"><div class="frame"><img src="assets/crew-3.webp" alt="Brian Charniga, pixel-art portrait" loading="lazy"></div><figcaption><h3>Brian Charniga</h3><span>Rhythm Guitar</span><p>As the newest member of the band Brian needs to wear his civvies until he can sing that 5th, but also keeps our rhythm guitar on beat.</p></figcaption></figure>
-      <figure class="crew-card reveal" id="m4" style="--delay:.18s"><div class="frame"><img src="assets/crew-4.webp" alt="Mike Cutler, pixel-art portrait" loading="lazy"></div><figcaption><h3>Mike Cutler</h3><span>Bodhrán</span><p>Mike's tiny bodhrán may not attract the ladies, but it sure does keep our band tight whether we're playing jigs or reels. Some say he prefers a real drum-set.</p></figcaption></figure>
+      <figure class="crew-card reveal" id="m4" style="--delay:.18s"><div class="frame"><img src="assets/crew-4.webp" alt="Mike Cutler, pixel-art portrait" loading="lazy"></div><figcaption><h3>Mike Cutler</h3><span>Bodhrán / Drum Kit</span><p>Mike's tiny bodhrán may not attract the ladies, but it sure does keep our band tight whether we're playing jigs or reels. Some say he prefers a real drum-set.</p></figcaption></figure>
       <figure class="crew-card reveal" id="m5" style="--delay:.24s"><div class="frame"><img src="assets/crew-5.webp" alt="Miles Moser, pixel-art portrait" loading="lazy"></div><figcaption><h3>Miles Moser</h3><span>Guitar</span><p>Miles may not show up for every practice, but when he does his driving guitar makes for a strange sight when you see it on the highway.</p></figcaption></figure>
       <figure class="crew-card reveal" id="m6" style="--delay:.30s"><div class="frame"><img src="assets/crew-6.webp" alt="Alon Hafri, pixel-art portrait" loading="lazy"></div><figcaption><h3>Alon Hafri</h3><span>Tin Whistle</span><p>Alon's tin whistle has always been a cornerstone of The Tullamore Crew. Without it some doubt we'd even sound remotely like an Irish band.</p></figcaption></figure>
       <figure class="crew-card reveal" id="m7" style="--delay:.36s"><div class="frame"><img src="assets/crew-7.webp" alt="Peter Clark, pixel-art portrait" loading="lazy"></div><figcaption><h3>Peter Clark</h3><span>Violin</span><p>As an obese youth Peter turned to the violin to fit in around school. It didn't work but luckily he can bring his bow laden chops to The Tullamore Crew.</p></figcaption></figure>
